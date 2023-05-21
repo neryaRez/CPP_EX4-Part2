@@ -12,8 +12,6 @@ class Team
 private:
     vector <Character*> my_team;
     Character* leader;
-    // bool has_leader = false;
-    
     
 public:
     Team(Character* lead);
@@ -28,8 +26,7 @@ public:
     vector <Character*> get_Team();
     Character* get_Leader();
     void check_Leader();
-    // void print2(Team* group);
-    // void call_print2();
+
 };
 
     

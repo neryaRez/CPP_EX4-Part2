@@ -15,9 +15,7 @@ namespace ariel{
 
         void print() override;
         void attack(Team* enemies) override;
-        size_t closest_to_Member(Character* member, Team* group) override;
-
-        
+        size_t closest_to_Member(Character* member, Team* group) override;   
     };
     
 }

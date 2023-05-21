@@ -59,12 +59,5 @@ void Ninja::move(Character* enemy){
 
 
 
-
-
-
-
-
-
-
 }
 

@@ -4,14 +4,10 @@
 namespace ariel{
 
     Team::Team(Character* lead){
-        // if(this->has_leader){
-        //     throw runtime_error("the group already has a leader\n ");
-        // }
-          this->add(lead);
-          this->leader = lead;  
-          
-        //   has_leader = true; 
-           this->leader->make_leader(); 
+
+        this->add(lead);
+        this->leader = lead;  
+        this->leader->make_leader(); 
         
     }
 
@@ -146,21 +142,8 @@ namespace ariel{
         
     }
 
-    // void Team::print2(Team* group){
-    //     for (size_t i = 0; i < group->get_Team().size(); i++)
-    //     {
-    //         cout <<group->get_Team()[i]->print();
-    //     }
-        
-    // }
-
-    // void Team::call_print2(){
-    //     print2(this);
-    // }
-
     Team::~Team(){
 
-        
         for (size_t i = 0; i < this->my_team.size(); i++)
         {
             delete (this->my_team[i]);
@@ -168,7 +151,6 @@ namespace ariel{
         
     }
     
-
     vector <Character*> Team::get_Team(){
         return this->my_team;
     }
@@ -176,10 +158,5 @@ namespace ariel{
     Character* Team::get_Leader(){
         return this->leader;
     }
-
-
-
-
-
 
 }

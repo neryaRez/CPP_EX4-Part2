@@ -55,26 +55,5 @@ Character::Character(string Name, Point Location): name(Name), location(Location
          return this->is_leader;
  }
 
-//  bool Character::equals(const Character* other) const{
-
-//    bool Name = this->name == other->name;
-//    bool Location = this->location == other->location;
-//    bool hit = this->hit_Points == other->hit_Points;
-//    bool Type = this->type == other->type;
-//    bool lead = other->is_leader == this->is_leader;
-
-//    return Name && Location && hit && Type && lead;
-//  }
-
-
-   
- 
-
-
-
-
-
-
-
 
 }

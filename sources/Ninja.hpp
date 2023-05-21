@@ -15,11 +15,7 @@ public:
     void move(Character* enemy);
     void slash(Character* enemy);
     string print() override;
-    // ~Ninja() override{
-    //     delete this;
-    // }
-    
-    
+
 };
 
 
