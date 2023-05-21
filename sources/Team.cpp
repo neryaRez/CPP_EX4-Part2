@@ -29,7 +29,7 @@ namespace ariel{
         
         else if (this->stillAlive() == 0 || enemies->stillAlive() == 0)
         {
-            return;
+            throw runtime_error("dead enemies can not be attacked.\n dead group should not attack\n");
         }
          
         this->check_Leader();
@@ -85,7 +85,7 @@ namespace ariel{
                     else if (j == 0 && group->get_Team()[i]->getType() =='N' || j == 1 && group->get_Team()[i]->getType() == 'C')
                     continue;
                     
-                    else if(group->get_Team()[i]->equals(member)) continue;
+                    else if(group->get_Team()[i] == member) continue;
                       
                     temp_min = member->distance(group->get_Team()[i]);
 

@@ -10,7 +10,15 @@ Ninja::Ninja(const char* name, Point Location) :Character::Character(name, Locat
 }
 
 void Ninja::slash(Character* enemy){
-    if(this->isAlive() && this->distance(enemy) <= 1){
+    if (! this->isAlive() || ! enemy->isAlive())
+    {
+        throw runtime_error("Dead characters cannot attack and characters cannot attack a dead enemy\n");
+    }
+    else if(this == enemy)
+    {
+        throw runtime_error("no self harm\n");
+    }
+    else if(this->distance(enemy) <= 1){
         enemy->hit(40);
     }
 }

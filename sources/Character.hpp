@@ -35,7 +35,7 @@ public:
     char getType();
     void setPart_of();
     void make_leader();
-    bool equals(const Character* other) const;
+    // bool equals(const Character* other) const;
 
 
    

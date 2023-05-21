@@ -16,12 +16,26 @@ namespace ariel{
     }
 
     void Cowboy::shoot(Character* enemy){
-        if(this->isAlive()&& this->hasboolets()){
-            enemy->hit(10);
-        }
+    if (! this->isAlive() || ! enemy->isAlive())
+    {
+        throw runtime_error("Dead characters cannot attack and characters cannot attack a dead enemy\n");
+    }
+    else if(this == enemy)
+    {
+        throw runtime_error("no self harm\n");
+    }
+
+    else if(this->hasboolets()){
+        enemy->hit(10);
         this->boolets -=1;
     }
+        
+    }
     void Cowboy::reload(){
+        if(! this->isAlive()){
+            throw runtime_error("Dead cowboy can not reload\n");
+        }
+
         this->boolets = 6;
     }
     string Cowboy::print(){
