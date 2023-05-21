@@ -13,21 +13,23 @@ private:
     vector <Character*> my_team;
     Character* leader;
     // bool has_leader = false;
-    void check_Leader();
+    
     
 public:
     Team(Character* lead);
     ~Team();
     void add(Character* member);
-    void print();
-    size_t closest_toLeader(vector<Character*> team);
-    int stillAlive();
 
-    void attack(Team* enemies);
+    virtual void print();
+    virtual size_t closest_toLeader(vector<Character*> team);
+    virtual void attack(Team* enemies);
+    
+    int stillAlive();
     vector <Character*> get_Team();
     Character* get_Leader();
-
-
+    void check_Leader();
+    // void print2(Team* group);
+    // void call_print2();
 };
 
     

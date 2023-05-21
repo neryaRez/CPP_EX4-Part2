@@ -144,6 +144,18 @@ namespace ariel{
         
     }
 
+    // void Team::print2(Team* group){
+    //     for (size_t i = 0; i < group->get_Team().size(); i++)
+    //     {
+    //         cout <<group->get_Team()[i]->print();
+    //     }
+        
+    // }
+
+    // void Team::call_print2(){
+    //     print2(this);
+    // }
+
     Team::~Team(){
 
         
@@ -153,6 +165,7 @@ namespace ariel{
         }
         
     }
+    
 
     vector <Character*> Team::get_Team(){
         return this->my_team;
