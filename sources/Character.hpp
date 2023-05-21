@@ -18,7 +18,7 @@ protected:
     char type;
 
 public:
-    Character(const char* Name, Point Location);
+    Character(string Name, Point Location);
     Point getLocation();
     string getName();
 
@@ -35,6 +35,7 @@ public:
     char getType();
     void setPart_of();
     void make_leader();
+    bool equals(const Character* other) const;
 
 
    

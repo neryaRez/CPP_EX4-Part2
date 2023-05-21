@@ -17,41 +17,45 @@ namespace ariel{
 
     void Team::check_Leader(){
         if (! this->leader->isAlive()){
-            this->leader = this->my_team[this->closest_toLeader(this->my_team)];
+             this->leader = this->my_team[this->closest_to_Member(this->leader,this)];
              this->leader->make_leader();
         }
         
     }
 
     void Team::attack(Team* enemies){
+
+        if(enemies == nullptr) throw invalid_argument("nul_ptr\n");
         
-        if (this->stillAlive() == 0 || enemies->stillAlive() == 0)
+        else if (this->stillAlive() == 0 || enemies->stillAlive() == 0)
         {
             return;
         }
-        
+         
         this->check_Leader();
 
-        Character* enemy = enemies->get_Team()[this->closest_toLeader(enemies->get_Team())];
+        Character* enemy = enemies->get_Team()[this->closest_to_Member(this->leader, enemies)];
 
         for (size_t j = 0; j < 2; j++)
         {
             for (size_t i = 0; i < this->my_team.size(); i++)
             {
-                if (! enemy->isAlive())
-                {
-                    enemy = enemies->get_Team()[this->closest_toLeader(enemies->get_Team())];
-                }
-
+                if(this->stillAlive() == 0 || enemies->stillAlive() == 0) return;
+                
                 else if( ! this->my_team[i]->isAlive()) continue;
+
+                else if (! enemy->isAlive())
+                {
+                    enemy = enemies->get_Team()[this->closest_to_Member(this->leader, enemies)];
+                }
                 
                 if (this->my_team[i]->getType() == 'C' && j ==0)
                 {
                     Cowboy* my_cowboy = dynamic_cast<Cowboy*>(this->my_team[i]);
                     
-                    if( ! my_cowboy->hasboolets() ) my_cowboy->reload();
+                    if( my_cowboy->hasboolets() ) my_cowboy->shoot(enemy);
 
-                    else my_cowboy->shoot(enemy);
+                    else my_cowboy->reload();
                     
                 }
                 
@@ -68,21 +72,22 @@ namespace ariel{
 
     }
 
-    size_t Team::closest_toLeader(vector<Character*> team){
+    size_t Team::closest_to_Member(Character* member, Team* group){
             double min_dist = numeric_limits<double>::max(), temp_min;
             size_t min_index = 0;
 
             for (size_t j = 0; j < 2; j++)
             {
-                for (size_t i = 0; i < team.size(); i++)
+                for (size_t i = 0; i < group->get_Team().size(); i++)
                 {
-                    if(j == 0 && team[i]->getType() =='N' || j == 1 && team[i]->getType() == 'C') continue;
+                    if(! group->get_Team()[i]->isAlive()) continue;
 
-                    else if (! team[i]->isAlive()) continue;
+                    else if (j == 0 && group->get_Team()[i]->getType() =='N' || j == 1 && group->get_Team()[i]->getType() == 'C')
+                    continue;
                     
-                    else if(team[i]->isLeader()) continue;
+                    else if(group->get_Team()[i]->equals(member)) continue;
                       
-                    temp_min = this->leader->distance(team[i]);
+                    temp_min = member->distance(group->get_Team()[i]);
 
                     if (temp_min < min_dist)
                     {
@@ -91,9 +96,6 @@ namespace ariel{
                     } 
                 }                
             }
-            
-
-
         return min_index;
     }
 

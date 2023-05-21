@@ -19,6 +19,7 @@ namespace ariel{
         if(this->isAlive()&& this->hasboolets()){
             enemy->hit(10);
         }
+        this->boolets -=1;
     }
     void Cowboy::reload(){
         this->boolets = 6;

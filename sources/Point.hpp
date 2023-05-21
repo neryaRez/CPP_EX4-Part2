@@ -20,6 +20,7 @@ public:
     string print();
     double getX();
     double getY();
+    bool operator == (const Point other) const;
 
 };
 

@@ -21,7 +21,7 @@ public:
     void add(Character* member);
 
     virtual void print();
-    virtual size_t closest_toLeader(vector<Character*> team);
+    virtual size_t closest_to_Member(Character* member, Team* group);
     virtual void attack(Team* enemies);
     
     int stillAlive();
