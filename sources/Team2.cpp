@@ -55,7 +55,7 @@ namespace ariel{
 
         for (size_t i = 0; i < this->get_Team().size(); i++)
         {
-            if(this->stillAlive() == 0 || enemies->stillAlive() == 0) return;
+            if(enemies->stillAlive() == 0) return;
                 
             else if( ! this->get_Team()[i]->isAlive()) continue;
 

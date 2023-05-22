@@ -36,7 +36,7 @@ namespace ariel{
         {
             for (size_t i = 0; i < this->my_team.size(); i++)
             {
-                if(this->stillAlive() == 0 || enemies->stillAlive() == 0) return;
+                if(enemies->stillAlive() == 0) return;
                 
                 else if( ! this->my_team[i]->isAlive()) continue;
 
@@ -119,7 +119,7 @@ namespace ariel{
 
     void Team::print(){
 
-        cout <<"The Group Members are:\n";
+        cout <<"The Group Members are:\n\n";
 
         for (size_t j = 0; j < 2; j++)
         {

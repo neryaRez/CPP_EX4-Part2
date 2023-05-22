@@ -42,14 +42,14 @@ namespace ariel{
         string str = "";
         if (this->isAlive())
         {
-            str +=("C "+this->getName()+"\n");
+            str +=("C "+this->getName()+", ");
             str +=("Life points: "+to_string(this->hit_Points));
-            str +="\n";
+            str +=", ";
 
         }
         else
         {
-            str+= ("(" +this->getName() + ")" +"\n");
+            str+= ("C (" +this->getName() + ")" +", ");
         }
         str+=location.print();
         str+="\n";
